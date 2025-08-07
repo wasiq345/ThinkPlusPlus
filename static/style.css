@@ -35,11 +35,11 @@ body {
     background-color: #080000;
     margin: 0;
 }
-textarea {
+.Code {
     font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', monospace;
     font-size: 16px;
     padding: 18px 16px;
-    width: 100%;
+    width: 68%;  
     height: 320px;
     background: linear-gradient(135deg, #232526 0%, #414345 100%);
     color: #e0e0e0;
@@ -51,24 +51,67 @@ textarea {
     transition: border 0.2s, box-shadow 0.2s;
 }
 
-textarea:focus {
+.Code:focus {
     border: 2px solid #b47ddb;
     box-shadow: 0 0 0 3px rgba(180, 125, 219, 0.15);
 }
 
-textarea::-webkit-scrollbar {
+.Code::-webkit-scrollbar {
     width: 10px;
     background: #232526;
     border-radius: 10px;
 }
-textarea::-webkit-scrollbar-thumb {
+
+.Code::-webkit-scrollbar-thumb {
     background: #6c3fb4;
     border-radius: 10px;
     cursor: pointer;
 }
-textarea::-webkit-scrollbar-thumb:hover {
+
+.Code::-webkit-scrollbar-thumb:hover {
     background: #b47ddb;
 }
+
+.input {
+    font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', monospace;
+    font-size: 16px;
+    padding: 18px 16px;
+    width: 30%;  
+    height: 120px; 
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+    color: #e0e0e0;
+    border: 1.5px solid #6c3fb4;
+    border-radius: 10px;
+    box-shadow: 0 4px 24px 0 rgba(80, 0, 120, 0.18), 0 1.5px 4px 0 rgba(0,0,0,0.12);
+    outline: none;
+    resize: vertical;
+    transition: border 0.2s, box-shadow 0.2s;
+    float: right;  
+    margin-top: -320px; 
+    margin-bottom: 20px;
+}
+
+.input:focus {
+    border: 2px solid #b47ddb;
+    box-shadow: 0 0 0 3px rgba(180, 125, 219, 0.15);
+}
+
+.input::-webkit-scrollbar {
+    width: 10px;
+    background: #232526;
+    border-radius: 10px;
+}
+
+.input::-webkit-scrollbar-thumb {
+    background: #6c3fb4;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.input::-webkit-scrollbar-thumb:hover {
+    background: #b47ddb;
+}
+
 .Run_btn {
     margin-top: 10px;
     padding: 10px 20px;
@@ -80,10 +123,12 @@ textarea::-webkit-scrollbar-thumb:hover {
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
+
 .Run_btn:hover
 {
     background-color: #a17fce;
 }
+
 pre {
     background: linear-gradient(120deg, #232526 0%, #3a3a40 100%);
     color: #e0e0e0;
@@ -98,6 +143,7 @@ pre {
     border: 1.5px solid #6c3fb4;
     transition: box-shadow 0.2s;
 }
+
 .Output {
     color: #b47ddb;
     font-family: 'Orbitron', Arial, sans-serif;
@@ -161,3 +207,10 @@ pre {
 .Title:hover::after {
     width: 280px;
 }
+
+form::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
