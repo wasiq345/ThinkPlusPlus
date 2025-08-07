@@ -1,14 +1,13 @@
 from flask import Flask, render_template, request
 import subprocess
-
 app = Flask(__name__, template_folder = "templates")
 
-@app.route("/", methods = ["GET", "POST"])
-def run_code():
-    output = ""
-
-    if request.method== "POST":
-        code = request.form['code']
+@app.route("/", methods=["GET", "POST"])
+def index():
+    code = ""
+    output = None
+    if request.method == "POST":
+        code = request.form.get("code", "")
 
         with open("main.cpp", "w") as file:
             file.write(code)
@@ -21,7 +20,7 @@ def run_code():
             runProcess = subprocess.run(["./main"], capture_output = True, text = True)
             output = runProcess.stdout
 
-    return render_template("index.html", output = output)
+    return render_template("index.html", code=code, output=output)
 
 if __name__  == "__main__":
     app.run(debug = True)
