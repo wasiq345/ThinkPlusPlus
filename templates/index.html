@@ -11,25 +11,31 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/dracula.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/clike/clike.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
 </head>
 <body>
 
     <h1 class="Title">Think++</h1>
 
     <form method="POST" action="/">
+        <select id ="language-select" name = "language">
+            <option value = "cpp" {% if language == 'cpp' %}selected{% endif %}>C++</option>
+            <option value = "python" {% if language == 'python' %}selected{% endif %}>Python</option>
+        </select>
+        <br>
         <textarea id="code-editor" name="code" placeholder="Write your C++ code here...">{{ code|e }}</textarea>
         <textarea class="input" name="user_input" placeholder="Write Input of your code: ">{{ user_input |e }}</textarea>
         <button type="submit" class="Run_btn">Run</button>
     </form>
 
     {% if output %}
-        <h2 class="Output">Output:</h2> 
+        <h2 class="Output">Output</h2> 
         <pre>{{ output }}</pre>
     {% endif %}
 
     <script>
         var editor = CodeMirror.fromTextArea(document.getElementById("code-editor"), {
-            mode: "text/x-c++src",
+            mode: "{{ 'text/x-c++src' if language == 'cpp' else 'python'}}",
             theme: "dracula",
             lineNumbers: true,
             autoCloseBrackets: true,
@@ -42,6 +48,19 @@
             extraKeys: {"Ctrl-Space": "autocomplete"}
         });
         editor.setSize("68%", "320px");
+
+        document.getElementById('language-select').addEventListener('change', function(){
+            var lang = this.value;
+            if(lang == 'cpp'){
+                editor.setOption('mode', 'text/x-c++src');
+                editor.setOption('placeholder', 'Write your c++ code here...');
+            }
+            
+            else if(lang == 'python'){
+                editor.setOption('mode', 'python');
+                editor.setOption('placeholder', 'Write your python code here...');
+            }
+        })
     </script>
 </body>
 </html>
