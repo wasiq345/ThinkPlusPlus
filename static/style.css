@@ -213,4 +213,17 @@ form::after {
     display: block;
     clear: both;
 }
+.CodeMirror {
+    font-family: 'Fira Mono', 'Consolas', 'Menlo', 'Monaco', monospace;
+    font-size: 16px;
+    height: 320px;
+    border: 1.5px solid #6c3fb4;
+    border-radius: 10px;
+    box-shadow: 0 4px 24px 0 rgba(80, 0, 120, 0.18), 0 1.5px 4px 0 rgba(0,0,0,0.12);
+}
+
+.CodeMirror:focus-within {
+    border: 2px solid #b47ddb;
+    box-shadow: 0 0 0 3px rgba(180, 125, 219, 0.15);
+}
 
