@@ -113,20 +113,32 @@ body {
 }
 
 .Run_btn {
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: blueviolet;
-    color: white;
+    margin-top: 18px;
+    padding: 12px 25px;
+    font-size: 14px;
+    font-family: 'Orbitron', Arial, sans-serif;
+    font-weight: bold;
+    background: linear-gradient(90deg, #6c3fb4 0%, #b47ddb 60%, #7c31d1 100%);
+    color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 30px;
+    box-shadow: 0 4px 16px 0 rgba(108, 63, 180, 0.18), 0 1.5px 4px 0 rgba(0,0,0,0.10);
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 
+        background 0.3s,
+        box-shadow 0.3s,
+        transform 0.2s,
+        letter-spacing 0.2s;
+    outline: none;
 }
 
-.Run_btn:hover
-{
-    background-color: #a17fce;
+.Run_btn:hover, .Run_btn:focus {
+    background: linear-gradient(90deg, #ae00ff 0%, #b47ddb 60%, #6c3fb4 100%);
+    box-shadow: 0 8px 32px 0 rgba(108, 63, 180, 0.28), 0 3px 8px 0 rgba(0,0,0,0.18);
+    transform: scale(1.05);
+    letter-spacing: 4px;
 }
 
 pre {
@@ -225,5 +237,48 @@ form::after {
 .CodeMirror:focus-within {
     border: 2px solid #b47ddb;
     box-shadow: 0 0 0 3px rgba(180, 125, 219, 0.15);
+}
+
+#language-select {
+    padding: 12px 24px;
+    font-family: 'Orbitron', Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #e0e0e0;
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+    border: 1.5px solid #6c3fb4;
+    border-radius: 8px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px 0 rgba(108, 63, 180, 0.18);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23b47ddb' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 12px) center;
+    padding-right: 36px;
+}
+
+#language-select:hover, #language-select:focus {
+    border-color: #b47ddb;
+    box-shadow: 0 4px 20px 0 rgba(108, 63, 180, 0.25);
+    transform: translateY(-1px);
+}
+
+#language-select option {
+    background-color: #232526;
+    color: #e0e0e0;
+    padding: 12px;
+    font-family: 'Orbitron', Arial, sans-serif;
+}
+
+#language-select option:hover {
+    background-color: #414345;
+}
+
+#language-select {
+    margin-bottom: 16px;
 }
 
