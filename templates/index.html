@@ -7,15 +7,19 @@
 
     <link rel = "stylesheet" href = "{{url_for('static', filename = 'style.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/dracula.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/clike/clike.min.js"></script>
 </head>
 <body>
 
     <h1 class="Title">Think++</h1>
 
     <form method="POST" action="/">
-        <textarea class="Code" name="code" placeholder="Write your C++ code here...">{{ code|e }}</textarea><br>
-        <textarea class="input" name = "user_input" placeholder="Write Input of your code: ">{{ user_input |e }}</textarea>
-        <button type="submit", class="Run_btn">Run</button>
+        <textarea id="code-editor" name="code" placeholder="Write your C++ code here...">{{ code|e }}</textarea>
+        <textarea class="input" name="user_input" placeholder="Write Input of your code: ">{{ user_input |e }}</textarea>
+        <button type="submit" class="Run_btn">Run</button>
     </form>
 
     {% if output %}
@@ -23,5 +27,21 @@
         <pre>{{ output }}</pre>
     {% endif %}
 
+    <script>
+        var editor = CodeMirror.fromTextArea(document.getElementById("code-editor"), {
+            mode: "text/x-c++src",
+            theme: "dracula",
+            lineNumbers: true,
+            autoCloseBrackets: true,
+            matchBrackets: true,
+            indentUnit: 4,
+            tabSize: 4,
+            indentWithTabs: true,
+            lineWrapping: true,
+            viewportMargin: Infinity,
+            extraKeys: {"Ctrl-Space": "autocomplete"}
+        });
+        editor.setSize("68%", "320px");
+    </script>
 </body>
 </html>
