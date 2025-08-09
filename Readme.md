@@ -183,4 +183,4 @@ Pull requests and suggestions are welcome! Please open an issue or submit a PR.
 ## Author
 
 [Wasiq](https://github.com/wasiq345)
-Connect with me On [LinkedIn](www.linkedin.com/in/wasiq-azeem-730215367)
+- Connect with me on [LinkedIn](https://www.linkedin.com/in/wasiq-azeem-730215367/)
