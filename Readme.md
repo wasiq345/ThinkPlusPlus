@@ -11,6 +11,7 @@ Think++ is a web-based code editor and runner built with Python Flask. It provid
 - **Custom Input:** Enter custom input for your code execution.
 - **Output Display:** See the output or errors of your code instantly.
 - **Save Code:** Save your code to the server with a single click.
+- **Download Code** Download your code to your computer with a single click.
 - **Beautiful UI:** Futuristic, responsive, and accessible design using custom CSS and Google Fonts.
 - **Language Switcher:** Easily switch between C++ and Python with a dropdown.
 - **Persistent State:** Keeps your code and input after running or saving.
@@ -48,9 +49,12 @@ Python_flask/
 
 4. **Run or Save:**  
    - **Run:** Click the "Run" button to compile (C++) or interpret (Python) your code. Output or errors are shown below.
-   - **Save:** Click the "Save" button to save your code to the `SavedFiles/` directory.
+   - **Save:** Enter the filename in the *Filename* section and Click the "Save" button to save your code to the `SavedFiles/` directory.
 
-5. **View Output:**  
+5. **Download:**
+   - Click the "Download" button to download the file on your computer.
+     
+6. **View Output:**  
    Output (or errors) are displayed in a styled output section below the editor.
 
 ---
@@ -97,7 +101,7 @@ Visit [http://127.0.0.1:5000](http://127.0.0.1:5000) in your browser.
 ### `app.py`
 
 - Handles all Flask routes and logic.
-- Receives code, input, language, and action (run/save) from the form.
+- Receives code, input, language, and action (run/save/download) from the form.
 - For C++:
   - Writes code to `main.cpp`, compiles with `g++`, runs the executable, and captures output/errors.
 - For Python:
@@ -124,7 +128,7 @@ Visit [http://127.0.0.1:5000](http://127.0.0.1:5000) in your browser.
 
 ### `SavedFiles/`
 
-- Stores saved code files (`saved_code.cpp` or `saved_code.py`).
+- Stores saved code files (`with your given FileName`).
 
 ---
 
@@ -178,5 +182,5 @@ Pull requests and suggestions are welcome! Please open an issue or submit a PR.
 
 ## Author
 
-[Wasiq]  
+[Wasiq](https://github.com/wasiq345)
 Connect with me On [LinkedIn](www.linkedin.com/in/wasiq-azeem-730215367)
