@@ -23,6 +23,11 @@
             <option value = "python" {% if language == 'python' %}selected{% endif %}>Python</option>
         </select>
         <br>
+        <div class="filename-container">
+            <label for="filename" class="filename-label">Filename:</label>
+            <input type="text" id="filename" name="filename" placeholder="Enter file name">
+       </div>
+
         <textarea id="code-editor" name="code" placeholder="Write your C++ code here...">{{ code|e }}</textarea>
         <textarea class="input" name="user_input" placeholder="Write Input of your code: ">{{ user_input |e }}</textarea>
         <button type="submit" class="Run_btn" name="action" value="run">Run</button>
