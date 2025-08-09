@@ -61,7 +61,7 @@ Python_flask/
 
 ```bash
 git clone https://github.com/wasiq345/ThinkPlusPlus.git
-cd Python_flask
+cd ThinkPlusPLus
 ```
 
 ### 2. Create a Virtual Environment
