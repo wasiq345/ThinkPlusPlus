@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import subprocess
+import subprocess, re, os
 app = Flask(__name__, template_folder = "templates")
 
 @app.route("/", methods=["GET", "POST"])
@@ -28,9 +28,15 @@ def Runcode():
 
     # if its save , save the file locally
             elif(action == "save"):
+                filename = request.form.get("filename", "")
+                if filename == "":
+                    filename = "my_code"
+
+                filename = re.sub(r'[^a-zA-Z0-9_\-]','',filename)    # Ensures user enters only save characters in filename     
                 ext = "cpp" if CodeLang == "cpp" else "py"
-                filename = f"saved_code.{ext}"          # Name of the file to save
-                filePath = f"SavedFiles/{filename}"     # Path to save the file
+                filename = f"{filename}.{ext}"                # Name of the file to save
+                os.makedirs("SavedFiles", exist_ok=True)          # Make sure the folder exists
+                filePath = os.path.join("SavedFiles",filename)     # the File path 
                 if(code != ""):
                     with open(filePath, 'w') as file:
                         file.write(code)
