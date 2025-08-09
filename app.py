@@ -6,19 +6,48 @@ app = Flask(__name__, template_folder = "templates")
 def Runcode():                                   
     code = ""
     output = None
-    if request.method == "POST":
-        code = request.form.get("code", "")                  # request to get the user code
-        userInput = request.form.get("user_input", "")        # get the code input
-        CodeLang = request.form.get("language","")            # get the language user wrote in
+    userInput = ""
+    CodeLang = "cpp"
 
-        if CodeLang == "cpp":
-            output = cppCode(code, userInput)
-        elif CodeLang == "python":
-            output = pythonCode(code, userInput)
-        else:
-            output = "Unsupported Language"
+    try:
+        if request.method == "POST":
+            code = request.form.get("code", "")                  # request to get the user code
+            userInput = request.form.get("user_input", "")        # get the code input
+            CodeLang = request.form.get("language","")            # get the language user wrote in
+            action = request.form.get("action","")                 # get the button user pressed: Run/Save
 
-    return render_template("index.html", code=code, output=output)          # Send c++ / Python Code output to html
+    # If its run , run the code
+            if(action == "run"):                            
+                if CodeLang == "cpp":
+                    output = cppCode(code, userInput)
+                elif CodeLang == "python":
+                    output = pythonCode(code, userInput)
+                else:
+                    output = "Unsupported Language"
+
+
+    # if its save , save the file locally
+            elif(action == "save"):
+                ext = "cpp" if CodeLang == "cpp" else "py"
+                filename = f"saved_code.{ext}"          # Name of the file to save
+                filePath = f"SavedFiles/{filename}"     # Path to save the file
+                if(code != ""):
+                    with open(filePath, 'w') as file:
+                        file.write(code)
+                    output = "File Saved Successfully"
+
+    except Exception as e:
+        output = f"Error: {str(e)}"
+
+    # Send Output to html
+    return render_template("index.html",
+        code=code,
+        output=output,
+        user_input = userInput,
+        language = CodeLang
+        )       
+
+
 
 
 # Compile the Cpp Code and send to Runcode function
