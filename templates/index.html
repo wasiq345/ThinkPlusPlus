@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C++ Code Editor</title>
+    <title>Think++</title>
 
     <link rel = "stylesheet" href = "{{url_for('static', filename = 'style.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet"> 
@@ -25,7 +25,8 @@
         <br>
         <textarea id="code-editor" name="code" placeholder="Write your C++ code here...">{{ code|e }}</textarea>
         <textarea class="input" name="user_input" placeholder="Write Input of your code: ">{{ user_input |e }}</textarea>
-        <button type="submit" class="Run_btn">Run</button>
+        <button type="submit" class="Run_btn" name="action" value="run">Run</button>
+        <button type="submit" class="save_btn" name="action" value="save" >Save</button>
     </form>
 
     {% if output %}
