@@ -151,7 +151,7 @@ For real deployments, use containers (like Docker), resource limits, and strong 
 
 ## Screenshots
 
-> _Add screenshots here to showcase the UI and features!_
+> _ScreenShots coming soon !_
 
 ---
 
