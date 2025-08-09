@@ -144,7 +144,7 @@ body {
 
 .save_btn {
     position: absolute;
-    right: 100px;
+    right: 200px;
     top: 600px; 
     margin-top: 18px;
     padding: 12px 22px;
@@ -168,6 +168,38 @@ body {
 }
 
 .save_btn:hover, .save_btn:focus {
+    background: linear-gradient(90deg, #ae00ff 0%, #b47ddb 60%, #6c3fb4 100%);
+    box-shadow: 0 8px 32px 0 rgba(108, 63, 180, 0.28), 0 3px 8px 0 rgba(0,0,0,0.18);
+    transform: scale(1.05);
+    letter-spacing: 4px;
+}
+
+.download_btn {
+    position: absolute;
+    right: 20px; 
+    top: 600px; 
+    margin-top: 18px;
+    padding: 12px 22px;
+    font-size: 12px;
+    font-family: 'Orbitron', Arial, sans-serif;
+    font-weight: bold;
+    background: linear-gradient(90deg, #6c3fb4 0%, #6c3fb4 60%, #7c31d1 100%);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 4px 16px 0 rgba(108, 63, 180, 0.18), 0 1.5px 4px 0 rgba(0,0,0,0.10);
+    cursor: pointer;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: 
+        background 0.3s,
+        box-shadow 0.3s,
+        transform 0.2s,
+        letter-spacing 0.2s;
+    outline: none;
+}
+
+.download_btn:hover, .download_btn:focus {
     background: linear-gradient(90deg, #ae00ff 0%, #b47ddb 60%, #6c3fb4 100%);
     box-shadow: 0 8px 32px 0 rgba(108, 63, 180, 0.28), 0 3px 8px 0 rgba(0,0,0,0.18);
     transform: scale(1.05);
