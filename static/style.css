@@ -51,11 +51,6 @@ body {
     transition: border 0.2s, box-shadow 0.2s;
 }
 
-.Code:focus {
-    border: 2px solid #b47ddb;
-    box-shadow: 0 0 0 3px rgba(180, 125, 219, 0.15);
-}
-
 .Code::-webkit-scrollbar {
     width: 10px;
     background: #232526;
@@ -92,7 +87,7 @@ body {
 }
 
 .input:focus {
-    border: 2px solid #b47ddb;
+    border: 2px solid #00ffe7;
     box-shadow: 0 0 0 3px rgba(180, 125, 219, 0.15);
 }
 
@@ -201,6 +196,42 @@ body {
 
 .download_btn:hover, .download_btn:focus {
     background: linear-gradient(90deg, #ae00ff 0%, #b47ddb 60%, #6c3fb4 100%);
+    box-shadow: 0 8px 32px 0 rgba(108, 63, 180, 0.28), 0 3px 8px 0 rgba(0,0,0,0.18);
+    transform: scale(1.05);
+    letter-spacing: 4px;
+}
+
+.load_btn {
+    position: absolute;
+    right: 450px;
+    top: 200px;
+    margin-top: 18px;
+    padding: 12px 24px;
+    font-size: 10px;
+    font-family: 'Orbitron', Arial, sans-serif;
+    font-weight: 500;
+    color: #e0e0e0;
+    background: linear-gradient(135deg, #232526 0%, #414345 100%);
+    border: 1.5px solid #6c3fb4;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px 0 rgba(108, 63, 180, 0.18);
+    cursor: pointer;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    outline: none;
+    transition: 
+        background 0.3s,
+        border 0.3s,
+        box-shadow 0.3s,
+        color 0.2s,
+        transform 0.2s,
+        letter-spacing 0.2s;
+}
+
+.load_btn:hover, .load_btn:focus {
+    border-color: #b47ddb;
+    background: linear-gradient(135deg, #414345 0%, #232526 100%);
+    color: #00ffe7;
     box-shadow: 0 8px 32px 0 rgba(108, 63, 180, 0.28), 0 3px 8px 0 rgba(0,0,0,0.18);
     transform: scale(1.05);
     letter-spacing: 4px;
