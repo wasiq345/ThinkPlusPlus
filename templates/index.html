@@ -17,7 +17,7 @@
 
     <h1 class="Title">Think++</h1>
 
-    <form method="POST" action="/">
+    <form method="POST" action="/run_code">
         <select id ="language-select" name = "language">
             <option value = "cpp" {% if language == 'cpp' %}selected{% endif %}>C++</option>
             <option value = "python" {% if language == 'python' %}selected{% endif %}>Python</option>
@@ -35,6 +35,23 @@
         <button type="submit" class="download_btn" name="action" value="download" >Download</button>
         <input type="file" id="fileInput" style="display:none;" onchange="loadFromComputer(event)">
         <button type="button" class="load_btn" onclick="document.getElementById('fileInput').click()">Load From Computer</button>
+    </form>
+
+
+    <form method="POST" action="/run_tests">
+        <textarea id="hidden-code" name="code" style="display: none;"></textarea>
+
+        <div>
+            <input type="text" name="test_input" placeholder="Test Input 1">
+            <input type="text" name="expected_output" placeholder="Expected Output 1">
+        </div>
+
+        <div>
+            <input type="text" name="test_input" placeholder="Test Input 2">
+            <input type="text" name="expected_output" placeholder="Expected Output 2">
+        </div>
+
+        <button type="submit" class="Run_btn">Run with Test Cases</button>
     </form>
 
     {% if output %}
@@ -79,6 +96,9 @@
             };
             reader.readAsText(file);
         }
+        document.querySelector('form[action="/run_tests"]').addEventListener('submit', function() {
+        document.getElementById('hidden-code').value = editor.getValue();
+        });
     </script>
 </body>
 </html>
