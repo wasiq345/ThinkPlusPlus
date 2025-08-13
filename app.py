@@ -79,47 +79,47 @@ def Runcode():
         )       
 
 
-@app.route("/run_tests", methods=["POST"])
-def TestCases():
-    code = ""
-    inputs = ""
-    codeLang = ""
-    expected_outputs = None
-    try:
-        if(request.method == "POST"):
-            code = request.form.get("code", "")
-            codeLang = request.form.get("language", "")
-            inputs = request.form.getlist("test_input", "")
-            expected_outputs = request.form.getlist("expected_output", "")
+# @app.route("/run_tests", methods=["POST"])
+# def TestCases():
+#     code = ""
+#     inputs = ""
+#     codeLang = ""
+#     expected_outputs = None
+#     try:
+#         if(request.method == "POST"):
+#             code = request.form.get("code", "")
+#             codeLang = request.form.get("language", "")
+#             inputs = request.form.getlist("test_input", "")
+#             expected_outputs = request.form.getlist("expected_output", "")
 
-            results = []
+#             results = []
             
-            if(code != ""):
+#             if(code != ""):
 
-                for i, test_input in enumerate(inputs):
-                    if(codeLang == "cpp"):
-                        actual_output = cppCode(code, test_input)
-                    else:
-                        actual_output = pythonCode(code, test_input)
+#                 for i, test_input in enumerate(inputs):
+#                     if(codeLang == "cpp"):
+#                         actual_output = cppCode(code, test_input)
+#                     else:
+#                         actual_output = pythonCode(code, test_input)
 
-                    if actual_output.strip() == expected_outputs[i].strip():
-                        results.append(f"Test {i + 1}: PASS  ✅")
-                    else:
-                        results.append(f"Test {i + 1}: Fail ❌ (Expected: {expected_outputs[i]}, Got: {actual_output})")
+#                     if actual_output.strip() == expected_outputs[i].strip():
+#                         results.append(f"Test {i + 1}: PASS  ✅")
+#                     else:
+#                         results.append(f"Test {i + 1}: Fail ❌ (Expected: {expected_outputs[i]}, Got: {actual_output})")
 
-                result_str = "<br>".join(results)
-            else:
-                result_str = "Please Write a Code First"
+#                 result_str = "<br>".join(results)
+#             else:
+#                 result_str = "Please Write a Code First"
             
-    except Exception as e:
-            result_str = f"Error: {str(e)}"
+#     except Exception as e:
+#             result_str = f"Error: {str(e)}"
             
 
-    return render_template("index.html",
-        code = code,
-        output = result_str,
-        user_input = inputs,
-        language = codeLang)    
+#     return render_template("index.html",
+#         code = code,
+#         output = result_str,
+#         user_input = inputs,
+#         language = codeLang)    
 
 
 
