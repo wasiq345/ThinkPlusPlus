@@ -37,23 +37,6 @@
         <button type="button" class="load_btn" onclick="document.getElementById('fileInput').click()">Load From Computer</button>
     </form>
 
-
-    <form method="POST" action="/run_tests">
-        <textarea id="hidden-code" name="code" style="display: none;"></textarea>
-
-        <div>
-            <input type="text" name="test_input" placeholder="Test Input 1">
-            <input type="text" name="expected_output" placeholder="Expected Output 1">
-        </div>
-
-        <div>
-            <input type="text" name="test_input" placeholder="Test Input 2">
-            <input type="text" name="expected_output" placeholder="Expected Output 2">
-        </div>
-
-        <button type="submit" class="Run_btn">Run with Test Cases</button>
-    </form>
-
     {% if output %}
         <h2 class="Output">Output</h2> 
         <pre>{{ output }}</pre>
@@ -96,9 +79,6 @@
             };
             reader.readAsText(file);
         }
-        document.querySelector('form[action="/run_tests"]').addEventListener('submit', function() {
-        document.getElementById('hidden-code').value = editor.getValue();
-        });
     </script>
 </body>
 </html>
