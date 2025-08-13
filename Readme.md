@@ -11,6 +11,7 @@ Think++ is a web-based code editor and runner built with Python Flask. It provid
 - **Custom Input:** Enter custom input for your code execution.
 - **Output Display:** See the output or errors of your code instantly.
 - **Save Code:** Save your code to the server with a single click.
+- **Load Code:** Load any cpp or python file from your computer. 
 - **Download Code** Download your code to your computer with a single click.
 - **Beautiful UI:** Futuristic, responsive, and accessible design using custom CSS and Google Fonts.
 - **Language Switcher:** Easily switch between C++ and Python with a dropdown.
@@ -47,14 +48,17 @@ Python_flask/
 3. **Select Language:**  
    Use the dropdown to choose between C++ and Python. The editor updates syntax highlighting accordingly.
 
-4. **Run or Save:**  
+4. **Load File:**
+  Use the "Load From Computer" button to load any cpp or python file from your computer.
+
+5. **Run or Save:**  
    - **Run:** Click the "Run" button to compile (C++) or interpret (Python) your code. Output or errors are shown below.
    - **Save:** Enter the filename in the *Filename* section and Click the "Save" button to save your code to the `SavedFiles/` directory.
 
-5. **Download:**
+6. **Download:**
    - Click the "Download" button to download the file on your computer.
      
-6. **View Output:**  
+7. **View Output:**  
    Output (or errors) are displayed in a styled output section below the editor.
 
 ---
